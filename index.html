@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>BeamBox Проектор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+        .top-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .top-section img {
+            width: 100%;
+            max-width: 480px;
+            border-radius: 10px;
+        }
+        .top-section video {
+            max-width: 480px;
+            width: 100%;
+            border-radius: 10px;
+            border: 3px solid #ccc;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .price {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: gray;
+            margin-right: 10px;
+        }
+        .new-price {
+            color: #d60000;
+            font-weight: bold;
+        }
+        .order-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .order-btn:hover {
+            background-color: #218838;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: white;
+        }
+        .order-form {
+            margin-top: 60px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+        }
+        .order-form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .order-form input, .order-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .order-form button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .order-form button:hover {
+            background-color: #0069d9;
+        }
+        .delivery-info {
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .delivery-info img {
+            max-width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BeamBox Проектор</h1>
+        <p>Перфектното решение за домашно кино</p>
+    </header>
+
+    <div class="main">
+        <div class="top-section">
+            <img src="projector.jpg" alt="BeamBox Проектор">
+            <video src="video.mp4" controls></video>
+        </div>
+
+        <h2>Описание на продукта</h2>
+        <p>
+            Компактен и модерен проектор с Android 11.0, Wi-Fi, вградени приложения (Netflix, Prime Video, YouTube),
+            и 4K поддръжка. Идеален за домашно кино, презентации и игри.
+        </p>
+        <ul>
+            <li>Резолюция: 720p (поддържа 4K декодиране)</li>
+            <li>Екран до 130 инча</li>
+            <li>Работи с Android 11 – над 4000 приложения</li>
+            <li>Wi-Fi връзка и screen cast</li>
+            <li>Размери: 17x10x9 см</li>
+        </ul>
+
+        <div class="price">
+            <span class="old-price">175 лв.</span>
+            <span class="new-price">130 лв.</span>
+        </div>
+
+        <a class="order-btn" href="#order">Поръчай</a>
+
+        <h2 style="margin-top: 40px;">Галерия</h2>
+        <div class="gallery">
+            <img src="photo1.jpg" alt="Прожекция с панда">
+            <img src="photo2.jpg" alt="Android интерфейс на проектора">
+            <img src="photo3.jpg" alt="Размери на проектора">
+        </div>
+
+        <div class="delivery-info">
+            <p><strong>Доставка с куриер на Speedy или Еконт в рамките на един ден</strong></p>
+            <img src="couriers.jpg" alt="Куриери">
+        </div>
+
+        <div id="order" class="order-form">
+            <h2>Попълни поръчка</h2>
+            <form action="#" method="POST">
+                <label for="name">Име</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="address">Адрес (по желание)</label>
+                <textarea id="address" name="address" rows="3"></textarea>
+
+                <button type="submit">Изпрати поръчка</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>Свържи се с нас: 0899920540 | TikTok: @BeamBox</p>
+    </footer>
+</body>
+</html>
