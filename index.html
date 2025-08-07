@@ -1,255 +1,258 @@
+<!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8" />
-    <title>BeamBox Проектор</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #f7f7f7, #e0e0e0);
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #222;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .main {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-        }
-        .top-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .top-section img {
-            width: 100%;
-            max-width: 480px;
-            border-radius: 10px;
-        }
-        .top-section video {
-            max-width: 480px;
-            width: 100%;
-            border-radius: 10px;
-            border: 3px solid #ccc;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #333;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .gallery img {
-            width: 100%;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-        }
-        .price {
-            font-size: 24px;
-            margin-top: 10px;
-        }
-        .old-price {
-            text-decoration: line-through;
-            color: gray;
-            margin-right: 10px;
-        }
-        .new-price {
-            color: #d60000;
-            font-weight: bold;
-        }
-        .order-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-        .order-btn:hover {
-            background-color: #218838;
-        }
-        .floating-order-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #28a745;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            z-index: 999;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #222;
-            color: white;
-        }
-        .order-form {
-            margin-top: 60px;
-            padding: 20px;
-            background-color: #f1f1f1;
-            border-radius: 10px;
-        }
-        .order-form label {
-            display: block;
-            margin-top: 15px;
-            font-weight: bold;
-        }
-        .order-form input, .order-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        .order-form button {
-            margin-top: 20px;
-            padding: 12px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        .order-form button:hover {
-            background-color: #0069d9;
-        }
-        .delivery-info {
-            margin-top: 40px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .delivery-info img {
-            max-width: 150px;
-            height: auto;
-        }
-        .countdown {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: #d60000;
-            background-color: #fff0f0;
-            padding: 15px;
-            border: 2px solid #d60000;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>BeamBox Проектор</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #f7f7f7, #e0e0e0);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #222;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+    }
+    .top-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .top-section img {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 10px;
+    }
+    .top-section video {
+      max-width: 480px;
+      width: 100%;
+      border-radius: 10px;
+      border: 3px solid #ccc;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    .price {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+    .old-price {
+      text-decoration: line-through;
+      color: gray;
+      margin-right: 10px;
+    }
+    .new-price {
+      color: #d60000;
+      font-weight: bold;
+    }
+    .order-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    .order-btn:hover {
+      background-color: #218838;
+    }
+    .floating-order-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #28a745;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: white;
+    }
+    .order-form {
+      margin-top: 60px;
+      padding: 20px;
+      background-color: #f1f1f1;
+      border-radius: 10px;
+    }
+    .order-form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .order-form input, .order-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .order-form button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .order-form button:hover {
+      background-color: #0069d9;
+    }
+    .delivery-info {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .delivery-info img {
+      max-width: 150px;
+      height: auto;
+    }
+    .countdown {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #d60000;
+      background-color: #fff0f0;
+      padding: 15px;
+      border: 2px solid #d60000;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>BeamBox Проектор</h1>
-        <p>Перфектното решение за домашно кино</p>
-    </header>
+  <header>
+    <h1>BeamBox Проектор</h1>
+    <p>Перфектното решение за домашно кино</p>
+  </header>
 
-    <div class="main">
-        <div class="countdown" data-aos="fade-down" id="countdown">Офертата изтича след: 00д 00ч 00м 00с</div>
+  <div class="main">
+    <div class="countdown" data-aos="fade-down" id="countdown">Офертата изтича след: 00д 00ч 00м 00с</div>
 
-        <div class="top-section" data-aos="fade-up">
-            <img src="projector.jpg" alt="BeamBox Проектор">
-            <video src="video.mp4" controls></video>
-        </div>
-
-        <h2>Описание на продукта</h2>
-        <p>Компактен и модерен проектор с Android 11.0, Wi-Fi, вградени приложения (Netflix, Prime Video, YouTube), и 4K поддръжка. Идеален за домашно кино, презентации и игри.</p>
-        <ul>
-            <li>Резолюция: 720p (поддържа 4K декодиране)</li>
-            <li>Екран до 130 инча</li>
-            <li>Работи с Android 11 – над 4000 приложения</li>
-            <li>Wi-Fi връзка и screen cast</li>
-            <li>Размери: 17x10x9 см</li>
-        </ul>
-
-        <div class="price" data-aos="fade-up">
-            <span class="old-price">175 лв.</span>
-            <span class="new-price">130 лв.</span>
-        </div>
-
-        <a class="order-btn" href="#order" data-aos="fade-up">Поръчай</a>
-
-        <h2 style="margin-top: 40px;">Галерия</h2>
-        <div class="gallery" data-aos="fade-up">
-            <img src="photo1.jpg" alt="Прожекция с панда">
-            <img src="photo2.jpg" alt="Android интерфейс на проектора">
-            <img src="photo3.jpg" alt="Размери на проектора">
-        </div>
-
-        <div class="delivery-info" data-aos="fade-up">
-            <p><strong>Доставка с куриер на Speedy или Еконт в рамките на един ден</strong></p>
-            <img src="couriers.jpg" alt="Куриери">
-        </div>
-
-        <div id="order" class="order-form" data-aos="fade-up">
-            <h2>Попълни поръчка</h2>
-            <form action="https://formsubmit.co/stiliqn_tb@abv.bg" method="POST">
-                <label for="name">Име</label>
-                <input type="text" id="name" name="Име" required>
-
-                <label for="phone">Телефон</label>
-                <input type="tel" id="phone" name="Телефон" required>
-
-                <label for="address">Адрес (по желание)</label>
-                <textarea id="address" name="Адрес" rows="3"></textarea>
-
-                <input type="hidden" name="_captcha" value="false">
-
-                <button type="submit">Изпрати поръчка</button>
-            </form>
-        </div>
+    <div class="top-section" data-aos="fade-up">
+      <img src="projector.jpg" alt="BeamBox Проектор">
+      <video src="video.mp4" controls></video>
     </div>
 
-    <footer>
-        <p>Свържи се с нас: 0899920540 | TikTok: @BeamBox</p>
-    </footer>
+    <h2>Описание на продукта</h2>
+    <p>
+      Компактен и модерен проектор с Android 11.0, Wi-Fi, вградени приложения (Netflix, Prime Video, YouTube), и 4K поддръжка. Идеален за домашно кино, презентации и игри.
+    </p>
+    <ul>
+      <li>Резолюция: 720p (поддържа 4K декодиране)</li>
+      <li>Екран до 130 инча</li>
+      <li>Работи с Android 11 – над 4000 приложения</li>
+      <li>Wi-Fi връзка и screen cast</li>
+      <li>Размери: 17x10x9 см</li>
+    </ul>
 
-    <a class="floating-order-btn" href="#order">Поръчай</a>
+    <div class="price" data-aos="fade-up">
+      <span class="old-price">175 лв.</span>
+      <span class="new-price">130 лв.</span>
+    </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
+    <a class="order-btn" href="#order" data-aos="fade-up">Поръчай</a>
 
-        const countdownEl = document.getElementById("countdown");
-        const targetDate = new Date();
-        targetDate.setHours(targetDate.getHours() + 48);
+    <h2 style="margin-top: 40px;">Галерия</h2>
+    <div class="gallery" data-aos="fade-up">
+      <img src="photo1.jpg" alt="Прожекция с панда">
+      <img src="photo2.jpg" alt="Android интерфейс на проектора">
+      <img src="photo3.jpg" alt="Размери на проектора">
+    </div>
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate.getTime() - now;
+    <div class="delivery-info" data-aos="fade-up">
+      <p><strong>Доставка с куриер на Speedy или Еконт в рамките на един ден</strong></p>
+      <img src="couriers.jpg" alt="Куриери">
+    </div>
 
-            if (distance < 0) {
-                countdownEl.innerHTML = "Офертата е изтекла!";
-                return;
-            }
+    <div id="order" class="order-form" data-aos="fade-up">
+      <h2>Попълни поръчка</h2>
+      <form action="https://formsubmit.co/stiliqn_tb@abv.bg" method="POST">
+        <label for="name">Име</label>
+        <input type="text" id="name" name="Име" required>
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        <label for="phone">Телефон</label>
+        <input type="tel" id="phone" name="Телефон" required>
 
-            countdownEl.innerHTML = `Офертата изтича след: ${days}д ${hours}ч ${minutes}м ${seconds}с`;
-        }
+        <label for="address">Адрес (по желание)</label>
+        <textarea id="address" name="Адрес" rows="3"></textarea>
 
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-    </script>
+        <input type="hidden" name="_captcha" value="false">
+
+        <button type="submit">Изпрати поръчка</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>Свържи се с нас: 0899920540 | TikTok: @BeamBox</p>
+  </footer>
+
+  <a class="floating-order-btn" href="#order">Поръчай</a>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    const countdownEl = document.getElementById("countdown");
+    const targetDate = new Date();
+    targetDate.setHours(targetDate.getHours() + 48);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate.getTime() - now;
+
+      if (distance < 0) {
+        countdownEl.innerHTML = "Офертата е изтекла!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `Офертата изтича след: ${days}д ${hours}ч ${minutes}м ${seconds}с`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
