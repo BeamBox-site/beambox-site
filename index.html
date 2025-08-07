@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-
 <html lang="bg">
 <head>
-<meta charset="utf-8"/>
-<title>BeamBox Проектор</title>
-<style>
+    <meta charset="UTF-8" />
+    <title>BeamBox Проектор</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background: linear-gradient(to bottom, #f7f7f7, #e0e0e0);
             margin: 0;
             padding: 0;
         }
@@ -81,6 +83,18 @@
         .order-btn:hover {
             background-color: #218838;
         }
+        .floating-order-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
         footer {
             text-align: center;
             padding: 20px;
@@ -128,117 +142,114 @@
             max-width: 150px;
             height: auto;
         }
-    
-html {
-    scroll-behavior: smooth;
-}
-.floating-order-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #28a745;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    z-index: 999;
-}
-
-.countdown {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #d60000;
-    background-color: #fff0f0;
-    padding: 15px;
-    border: 2px solid #d60000;
-    border-radius: 10px;
-    margin-bottom: 30px;
-}
-
-body {
-    background: linear-gradient(to bottom, #f7f7f7, #e0e0e0);
-}
-</style>
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/></head>
+        .countdown {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #d60000;
+            background-color: #fff0f0;
+            padding: 15px;
+            border: 2px solid #d60000;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
 <body>
-<header>
-<h1>BeamBox Проектор</h1>
-<p>Перфектното решение за домашно кино</p>
-</header>
-<div class="main">
-<div class="countdown" data-aos="fade-down" id="countdown">Офертата изтича след: 00д 00ч 00м 00с</div><div class="top-section" data-aos="fade-up">
-<img alt="BeamBox Проектор" src="projector.jpg"/>
-<video controls="" src="video.mp4"></video>
-</div>
-<h2>Описание на продукта</h2>
-<p>
-            Компактен и модерен проектор с Android 11.0, Wi-Fi, вградени приложения (Netflix, Prime Video, YouTube),
-            и 4K поддръжка. Идеален за домашно кино, презентации и игри.
-        </p>
-<ul>
-<li>Резолюция: 720p (поддържа 4K декодиране)</li>
-<li>Екран до 130 инча</li>
-<li>Работи с Android 11 – над 4000 приложения</li>
-<li>Wi-Fi връзка и screen cast</li>
-<li>Размери: 17x10x9 см</li>
-</ul>
-<div class="price" data-aos="fade-up">
-<span class="old-price">175 лв.</span>
-<span class="new-price">130 лв.</span>
-</div>
-<a class="order-btn" data-aos="fade-up" href="#order">Поръчай</a>
-<h2 style="margin-top: 40px;">Галерия</h2>
-<div class="gallery" data-aos="fade-up">
-<img alt="Прожекция с панда" src="photo1.jpg"/>
-<img alt="Android интерфейс на проектора" src="photo2.jpg"/>
-<img alt="Размери на проектора" src="photo3.jpg"/>
-</div>
-<div class="delivery-info" data-aos="fade-up">
-<p><strong>Доставка с куриер на Speedy или Еконт в рамките на един ден</strong></p>
-<img alt="Куриери" src="couriers.jpg"/>
-</div>
-<div class="order-form" data-aos="fade-up" id="order">
-<h2>Попълни поръчка</h2>
-<form action="#" method="POST">
-<label for="name">Име</label>
-<input id="name" name="name" required="" type="text"/>
-<label for="phone">Телефон</label>
-<input id="phone" name="phone" required="" type="tel"/>
-<label for="address">Адрес (по желание)</label>
-<textarea id="address" name="address" rows="3"></textarea>
-<button type="submit">Изпрати поръчка</button>
-</form>
-</div>
-</div>
-<footer>
-<p>Свържи се с нас: 0899920540 | TikTok: @BeamBox</p>
-</footer>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script>AOS.init();</script><a class="floating-order-btn" href="#order">Поръчай</a><script>
-// Таймер до след 48 часа от сега
-const countdownEl = document.getElementById("countdown");
-const targetDate = new Date();
-targetDate.setHours(targetDate.getHours() + 48);
+    <header>
+        <h1>BeamBox Проектор</h1>
+        <p>Перфектното решение за домашно кино</p>
+    </header>
 
-function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate.getTime() - now;
+    <div class="main">
+        <div class="countdown" data-aos="fade-down" id="countdown">Офертата изтича след: 00д 00ч 00м 00с</div>
 
-    if (distance < 0) {
-        countdownEl.innerHTML = "Офертата е изтекла!";
-        return;
-    }
+        <div class="top-section" data-aos="fade-up">
+            <img src="projector.jpg" alt="BeamBox Проектор">
+            <video src="video.mp4" controls></video>
+        </div>
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        <h2>Описание на продукта</h2>
+        <p>Компактен и модерен проектор с Android 11.0, Wi-Fi, вградени приложения (Netflix, Prime Video, YouTube), и 4K поддръжка. Идеален за домашно кино, презентации и игри.</p>
+        <ul>
+            <li>Резолюция: 720p (поддържа 4K декодиране)</li>
+            <li>Екран до 130 инча</li>
+            <li>Работи с Android 11 – над 4000 приложения</li>
+            <li>Wi-Fi връзка и screen cast</li>
+            <li>Размери: 17x10x9 см</li>
+        </ul>
 
-    countdownEl.innerHTML = `Офертата изтича след: ${days}д ${hours}ч ${minutes}м ${seconds}с`;
-}
+        <div class="price" data-aos="fade-up">
+            <span class="old-price">175 лв.</span>
+            <span class="new-price">130 лв.</span>
+        </div>
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
-</script></body>
+        <a class="order-btn" href="#order" data-aos="fade-up">Поръчай</a>
+
+        <h2 style="margin-top: 40px;">Галерия</h2>
+        <div class="gallery" data-aos="fade-up">
+            <img src="photo1.jpg" alt="Прожекция с панда">
+            <img src="photo2.jpg" alt="Android интерфейс на проектора">
+            <img src="photo3.jpg" alt="Размери на проектора">
+        </div>
+
+        <div class="delivery-info" data-aos="fade-up">
+            <p><strong>Доставка с куриер на Speedy или Еконт в рамките на един ден</strong></p>
+            <img src="couriers.jpg" alt="Куриери">
+        </div>
+
+        <div id="order" class="order-form" data-aos="fade-up">
+            <h2>Попълни поръчка</h2>
+            <form action="https://formsubmit.co/stiliqn_tb@abv.bg" method="POST">
+                <label for="name">Име</label>
+                <input type="text" id="name" name="Име" required>
+
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" name="Телефон" required>
+
+                <label for="address">Адрес (по желание)</label>
+                <textarea id="address" name="Адрес" rows="3"></textarea>
+
+                <input type="hidden" name="_captcha" value="false">
+
+                <button type="submit">Изпрати поръчка</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>Свържи се с нас: 0899920540 | TikTok: @BeamBox</p>
+    </footer>
+
+    <a class="floating-order-btn" href="#order">Поръчай</a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        const countdownEl = document.getElementById("countdown");
+        const targetDate = new Date();
+        targetDate.setHours(targetDate.getHours() + 48);
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate.getTime() - now;
+
+            if (distance < 0) {
+                countdownEl.innerHTML = "Офертата е изтекла!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownEl.innerHTML = `Офертата изтича след: ${days}д ${hours}ч ${minutes}м ${seconds}с`;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
 </html>
