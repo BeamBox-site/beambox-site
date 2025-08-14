@@ -5,14 +5,11 @@
   <title>BeamBox Проектор</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(to bottom, #f7f7f7, #e0e0e0);
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
     }
     header {
       background-color: #222;
@@ -44,9 +41,7 @@
       border: 3px solid #ccc;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    h2 {
-      color: #333;
-    }
+    h2 { color: #333; }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -58,17 +53,20 @@
       border-radius: 10px;
     }
     .price {
-      font-size: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin-top: 10px;
     }
-    .old-price {
-      text-decoration: line-through;
-      color: gray;
-      margin-right: 10px;
-    }
-    .new-price {
-      color: #d60000;
-      font-weight: bold;
+    .old-price { text-decoration: line-through; color: gray; }
+    .new-price { color: #d60000; font-weight: bold; font-size: 26px; }
+    .euro-price {
+      font-size: 14px;
+      color: #555;
+      background: #f3f3f3;
+      border: 1px solid #ddd;
+      padding: 2px 8px;
+      border-radius: 6px;
     }
     .order-btn {
       display: inline-block;
@@ -81,9 +79,7 @@
       border-radius: 8px;
       transition: background-color 0.3s ease;
     }
-    .order-btn:hover {
-      background-color: #218838;
-    }
+    .order-btn:hover { background-color: #218838; }
     .floating-order-btn {
       position: fixed;
       bottom: 20px;
@@ -130,19 +126,14 @@
       border-radius: 8px;
       cursor: pointer;
     }
-    .order-form button:hover {
-      background-color: #0069d9;
-    }
+    .order-form button:hover { background-color: #0069d9; }
     .delivery-info {
       margin-top: 40px;
       display: flex;
       align-items: center;
       gap: 20px;
     }
-    .delivery-info img {
-      max-width: 150px;
-      height: auto;
-    }
+    .delivery-info img { max-width: 150px; height: auto; }
     .countdown {
       text-align: center;
       font-size: 24px;
@@ -154,6 +145,24 @@
       border-radius: 10px;
       margin-bottom: 30px;
     }
+    /* Стил за под артикул */
+    .addon {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #f9f9f9;
+      margin-top: 30px;
+    }
+    .addon img {
+      max-width: 150px;
+      border-radius: 8px;
+    }
+    .addon h3 { margin: 0; font-size: 18px; color: #333; }
+    .addon p { margin: 5px 0; font-size: 14px; }
+    .addon strong { color: #d60000; }
   </style>
 </head>
 <body>
@@ -173,7 +182,7 @@
     <h2>Описание на продукта</h2>
     <p>
       BeamBox Проектор – компактен и модерен 160W мултимедиен проектор с Android 11.0, Wi-Fi и вградени приложения като Netflix, YouTube и Prime Video. Поддържа 4K декодиране и предлага кристално ясна картина до 130 инча.
-Идеален за домашно кино, презентации и гейминг. Оборудван с screen cast функция, позволяваща безжично споделяне на екрана от телефон, таблет или лаптоп.
+      Идеален за домашно кино, презентации и гейминг. Оборудван с screen cast функция, позволяваща безжично споделяне на екрана от телефон, таблет или лаптоп.
     </p>
     <ul>
       <li>Резолюция: 720p (поддържа 4K декодиране)</li>
@@ -186,6 +195,23 @@
     <div class="price" data-aos="fade-up">
       <span class="old-price">175 лв.</span>
       <span class="new-price">130 лв.</span>
+      <span class="euro-price">(≈ 66.50 €)</span>
+    </div>
+
+    <!-- Под артикул -->
+    <h2 style="margin-top: 50px;">Добави към поръчката</h2>
+    <div class="addon" data-aos="fade-up">
+      <img src="addon.jpg" alt="Стойка за проектор">
+      <div>
+        <h3>Стойка за проектор</h3>
+        <p>Сгъваема и регулируема стойка за перфектно позициониране на проектора.</p>
+        <strong>+ 25 лв.</strong>
+        <br><br>
+        <label style="display: flex; align-items: center; gap: 8px;">
+          <input type="checkbox" name="Добавка - Стойка за проектор" value="Да">
+          Добави към поръчката
+        </label>
+      </div>
     </div>
 
     <a class="order-btn" href="#order" data-aos="fade-up">Поръчай</a>
@@ -213,6 +239,11 @@
 
         <label for="address">Адрес (по желание)</label>
         <textarea id="address" name="Адрес" rows="3"></textarea>
+
+        <label style="display: flex; align-items: center; gap: 8px; margin-top: 15px;">
+          <input type="checkbox" name="Добавка - Стойка за проектор" value="Да">
+          Добавям и стойка за проектор (+25 лв.)
+        </label>
 
         <input type="hidden" name="_captcha" value="false">
 
@@ -257,4 +288,3 @@
   </script>
 </body>
 </html>
-
